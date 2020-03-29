@@ -1,3 +1,7 @@
+library(tidyverse)
+library(ggthemes)
+library(ggrepel)
+
 #code for the plot
 
 plot <- pass_block_sack %>%
