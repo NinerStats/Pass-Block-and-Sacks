@@ -1,0 +1,20 @@
+#code for the plot
+
+plot <- pass_block_sack %>%
+ggplot(aes(x = pbwr, y = sacked_per_dropback)) +
+  geom_point(size = 2) +
+  labs(x = "Pass Block Win Rate",
+       y = "Sacked Per Dropback",
+       caption = "Data from nflscrapR and ESPN \n \n NinerStatsR",
+       title = "Pass Blocking Effectivness vs Sacks",
+       subtitle = "2019 regular season, min 300 pass dropbacks") +
+  theme_fivethirtyeight() +
+  theme(axis.title = element_text(size = 12),
+        axis.text = element_text(size = 10),
+        plot.title = element_text(size = 16, hjust = 0.5),
+        plot.subtitle = element_text(size = 14, hjust = 0.5),
+        plot.caption = element_text(size = 12)) + stat_smooth(method = "lm", geom = "line", alpha = 0.5, se = FALSE, color = "red", size = 1)
+        + geom_text_repel(label = pass_block_sack$`qb name`) + scale_y_reverse()
+        
+        
+      
